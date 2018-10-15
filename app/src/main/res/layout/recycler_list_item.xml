@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recyclerItemLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="7dp"
+    app:cardElevation="10dp"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            android:transitionName="imageTransition" />
+
+        <TextView
+            android:id="@+id/imageDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:hint="sarasa"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:textColor="@android:color/black"
+            android:transitionName="textTransition" />
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/imageDescription">
+
+            <android.support.design.bottomappbar.BottomAppBar
+                android:id="@+id/appBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                style="@style/Widget.MaterialComponents.BottomAppBar"
+                app:backgroundTint="@color/colorDark"
+                app:fabAlignmentMode="end"
+                app:fabCradleMargin="5dp"
+                >
+
+            </android.support.design.bottomappbar.BottomAppBar>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/bottomBarFloatingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_anchor="@id/appBar"
+                app:backgroundTint="@android:color/black"
+                android:src="@mipmap/outline_play_arrow_black_48"
+                android:tint="@android:color/white"
+                android:background="@color/collorRippleEffectPressed"/>
+
+        </android.support.design.widget.CoordinatorLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

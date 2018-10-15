@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/userData"
+        android:icon="@mipmap/ic_launcher"
+        app:showAsAction="never"
+        android:title="User data" />
+
+    <item
+        android:id="@+id/help"
+        android:title="Help"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/seeMore"
+        android:title="More options"
+        app:showAsAction="never">
+
+        <menu>
+            <item
+                android:id="@+id/example1"
+                android:title="Example inner 1"/>
+
+            <item
+                android:id="@+id/example2"
+                android:title="Example inner 2"/>
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        app:showAsAction="never"/>
+</menu>

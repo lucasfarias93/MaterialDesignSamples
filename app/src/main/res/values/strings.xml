@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="australia_escription"><strong>Culture</strong> <p>Australian culture is as broad and varied as the country\'s landscape. Australia is multicultural and multiracial and this is reflected in the country\'s food, lifestyle and cultural practices and experience.  Australia has an important heritage from its indigenous people, which plays a defining role in the cultural landscape.  This diversity of influences creates a cultural environment in Australia that is lively, energised, innovative and outward looking.</p>  <strong>Population</strong> <p>As of December 2014, Australia\'s population is roughly 23.6 million people. The most populous states are New South Wales and Victoria, with their respective capitals, Sydney and Melbourne, the largest cities in Australia.  Australia\'s population is concentrated along the coastal region of Australia from Adelaide to Cairns, with a small concentration around Perth, Western Australia. The centre of Australia is sparsely populated.</p></string>
+</resources>
