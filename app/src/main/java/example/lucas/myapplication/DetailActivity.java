@@ -8,6 +8,7 @@ import android.support.design.bottomappbar.BottomAppBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private Bitmap mImageBitmap;
     private String mImageName;
+    private TextView mImageExtenseDescription;
 
     //BottomAppBar will work as a supportActionBar with its same methods. Do not use it together with current
     //android support action bar.
@@ -35,6 +37,8 @@ public class DetailActivity extends AppCompatActivity {
         final ImageView mImageView = findViewById(R.id.imageView);
         TextView mTextView = findViewById(R.id.textTitle);
         mBottomAppBar = findViewById(R.id.detailAppBar);
+        mImageExtenseDescription = findViewById(R.id.textImageExtenseDescription);
+        mImageExtenseDescription.setVisibility(View.VISIBLE);
         setSupportActionBar(mBottomAppBar);
 
         mImageView.setImageBitmap(mImageBitmap);
@@ -64,6 +68,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        mImageExtenseDescription.setVisibility(View.GONE);
         supportFinishAfterTransition();
     }
 }

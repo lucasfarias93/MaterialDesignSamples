@@ -7,71 +7,80 @@
     app:cardCornerRadius="7dp"
     app:cardElevation="10dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
 
-        <ImageView
-            android:id="@+id/imageView"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"
-            android:transitionName="imageTransition" />
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
 
-        <TextView
-            android:id="@+id/textTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView"
-            android:hint="TEXT TITLE"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:transitionName="textTransition" />
 
-        <TextView
-            android:id="@+id/textImageExtenseDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:layout_below="@+id/textTitle"
-            android:text="@string/australia_escription"/>
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:transitionName="imageTransition" />
 
-        <android.support.design.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@+id/textTitle">
-
-            <android.support.design.bottomappbar.BottomAppBar
-                android:id="@+id/detailAppBar"
-                style="@style/Widget.MaterialComponents.BottomAppBar"
+            <TextView
+                android:id="@+id/textTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                app:backgroundTint="@color/colorDark"
-                app:fabAlignmentMode="center"
-                app:fabCradleMargin="5dp"
-                app:hideOnScroll="true"
-                app:navigationIcon="@mipmap/outline_menu_white_18">
+                android:layout_below="@+id/imageView"
+                android:hint="TEXT TITLE"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="@android:color/black"
+                android:transitionName="textTransition" />
 
-            </android.support.design.bottomappbar.BottomAppBar>
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/bottomBarFloatingButton"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textImageExtenseDescription"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/collorRippleEffectPressed"
-                android:src="@mipmap/outline_play_arrow_black_48"
-                android:tint="@android:color/white"
-                app:backgroundTint="@android:color/black"
-                app:layout_anchor="@id/detailAppBar" />
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:layout_below="@+id/textTitle"
+                android:textColor="@android:color/black"
+                android:text="@string/australia_escription"/>
 
-        </android.support.design.widget.CoordinatorLayout>
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/textImageExtenseDescription">
+
+                <android.support.design.bottomappbar.BottomAppBar
+                    android:id="@+id/detailAppBar"
+                    style="@style/Widget.MaterialComponents.BottomAppBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    app:backgroundTint="@color/colorDark"
+                    app:fabAlignmentMode="center"
+                    app:fabCradleMargin="5dp"
+                    app:hideOnScroll="true"
+                    app:navigationIcon="@mipmap/outline_menu_white_36">
+
+                </android.support.design.bottomappbar.BottomAppBar>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/bottomBarFloatingButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/collorRippleEffectPressed"
+                    android:src="@mipmap/outline_play_arrow_black_48"
+                    android:tint="@android:color/white"
+                    app:backgroundTint="@android:color/black"
+                    app:layout_anchor="@id/detailAppBar" />
+
+            </android.support.design.widget.CoordinatorLayout>
 
 
-    </RelativeLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
 </android.support.v7.widget.CardView>
