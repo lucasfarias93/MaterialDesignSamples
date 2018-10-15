@@ -28,7 +28,7 @@
             android:hint="sarasa"
             android:padding="10dp"
             android:textAlignment="center"
-            android:textSize="17sp"
+            android:textSize="30sp"
             android:textColor="@android:color/black"
             android:transitionName="textTransition" />
 
