@@ -1,10 +1,12 @@
 package example.lucas.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.bottomappbar.BottomAppBar;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -23,7 +25,9 @@ public class DetailActivity extends AppCompatActivity {
     //BottomAppBar will work as a supportActionBar with its same methods. Do not use it together with current
     //android support action bar.
     private BottomAppBar mBottomAppBar;
+    private FloatingActionButton mFloatingButtonBar;
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +42,10 @@ public class DetailActivity extends AppCompatActivity {
         TextView mTextView = findViewById(R.id.textTitle);
         mBottomAppBar = findViewById(R.id.detailAppBar);
         mImageExtenseDescription = findViewById(R.id.textImageExtenseDescription);
+        mFloatingButtonBar = findViewById(R.id.detailsBottomBarFloatingButton);
+        mFloatingButtonBar.setVisibility(View.VISIBLE);
         mImageExtenseDescription.setVisibility(View.VISIBLE);
+        mBottomAppBar.setVisibility(View.VISIBLE);
         setSupportActionBar(mBottomAppBar);
 
         mImageView.setImageBitmap(mImageBitmap);
@@ -65,10 +72,13 @@ public class DetailActivity extends AppCompatActivity {
         return true;
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         mImageExtenseDescription.setVisibility(View.GONE);
+        mBottomAppBar.setVisibility(View.GONE);
+        mFloatingButtonBar.setVisibility(View.GONE);
         supportFinishAfterTransition();
     }
 }
