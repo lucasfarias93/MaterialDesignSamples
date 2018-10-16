@@ -59,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    app:backgroundTint="@color/colorDark"
+                    app:backgroundTint="@color/colorSuperLight"
                     app:fabAlignmentMode="center"
                     app:fabCradleMargin="5dp"
                     app:hideOnScroll="true"
@@ -73,8 +73,8 @@
                     android:layout_height="wrap_content"
                     android:background="@color/collorRippleEffectPressed"
                     android:src="@mipmap/outline_play_arrow_black_48"
-                    android:tint="@android:color/white"
-                    app:backgroundTint="@android:color/black"
+                    android:tint="@android:color/black"
+                    app:backgroundTint="@color/colorGrey"
                     app:layout_anchor="@id/detailAppBar" />
 
             </android.support.design.widget.CoordinatorLayout>

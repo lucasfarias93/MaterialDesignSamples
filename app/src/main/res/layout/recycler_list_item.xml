@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 style="@style/Widget.MaterialComponents.BottomAppBar"
-                app:backgroundTint="@color/colorDark"
+                app:backgroundTint="@color/colorSuperLight"
                 app:fabAlignmentMode="end"
                 app:fabCradleMargin="5dp"
                 >
@@ -56,9 +56,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_anchor="@id/appBar"
-                app:backgroundTint="@android:color/black"
+                app:backgroundTint="@color/colorGrey"
                 android:src="@mipmap/outline_play_arrow_black_48"
-                android:tint="@android:color/white"
+                android:tint="@android:color/black"
                 android:background="@color/collorRippleEffectPressed"/>
 
         </android.support.design.widget.CoordinatorLayout>

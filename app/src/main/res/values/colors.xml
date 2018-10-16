@@ -9,4 +9,5 @@
     <color name="colorDark">#1976D2</color>
     <color name="colorAccentBridge">#8BC34A</color>
     <color name="collorRippleEffectPressed">#8d8e8b</color>
+    <color name="colorGrey">#d4d4d4</color>
 </resources>
