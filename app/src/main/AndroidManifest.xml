@@ -21,6 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.MyTheme">
 
+
+        <receiver android:name=".Utils.CloseButtonReceiver"/>
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
         <activity
@@ -35,6 +37,7 @@
         </activity>
         <activity
             android:name=".DetailActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.MaterialComponents.MyTheme.NoActionBar"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -50,7 +53,9 @@
 
         <activity
             android:name=".MapsActivity"
+            android:parentActivityName=".DetailActivity"
             android:label="@string/title_activity_maps" />
     </application>
+
 
 </manifest>

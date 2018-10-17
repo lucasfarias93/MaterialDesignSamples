@@ -3,10 +3,13 @@ package example.lucas.myapplication;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.location.Location;
 import android.os.Looper;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -39,7 +42,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Location mLastLocation;
     View mMapView;
 
+    Bitmap mNotificaitonBitmap;
+    String mNotificationTitleText;
+
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
