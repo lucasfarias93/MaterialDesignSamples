@@ -1,9 +1,11 @@
 package example.lucas.myapplication;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Keep;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,13 +16,17 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 import example.lucas.myapplication.Adapters.RecyclerViewAdapter;
+import example.lucas.myapplication.Asynctask.ImagesToSQLiteAsynctask;
+import example.lucas.myapplication.Model.Image;
 import example.lucas.myapplication.Provider.ImageListProviderAsyncTask;
+import example.lucas.myapplication.SQLiteDatabase.ImagesSQLIiteDatabase;
 
 @Keep
-public class MainActivity extends AppCompatActivity implements ImageListProviderAsyncTask.ImageListCallback {
+public class MainActivity extends AppCompatActivity implements ImageListProviderAsyncTask.ImageListCallback, ImagesToSQLiteAsynctask.ImageToDatabaseCallback {
 
     private static final String TAG = "MainActivity.class";
 
@@ -35,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements ImageListProvider
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
     private ArrayList<Bitmap> mImageBitmaps = new ArrayList<>();
+    private Image mImage = new Image();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements ImageListProvider
 
         mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
         mNames.add("Havasu Falls");
+        mImage.setmImageId("1");
+        mImage.setmImageName("Havasu Falls");
 
         mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
         mNames.add("Trondheim");
@@ -108,10 +117,44 @@ public class MainActivity extends AppCompatActivity implements ImageListProvider
         imageDownloadAsynctask.execute(mImageUrls);
     }
 
+    public void saveImagesInDatabase(ArrayList<Bitmap> mBitmaps) {
+        byte[] mByteArrayImage = convertBitmapToByteArray(mBitmaps.get(0));
+        mImage.setmImageByteArray(mByteArrayImage);
+
+        ImagesSQLIiteDatabase mInstance = ImagesSQLIiteDatabase.getInstance(MainActivity.this);
+
+        ImagesToSQLiteAsynctask mImagesAsynctask = new ImagesToSQLiteAsynctask(mInstance, this);
+        mImagesAsynctask.execute(mImage);
+    }
+
+    public byte[] convertBitmapToByteArray(Bitmap mBitmap) {
+        ByteArrayOutputStream mBAOS = new ByteArrayOutputStream();
+        mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, mBAOS);
+        return mBAOS.toByteArray();
+    }
 
     @Override
     public void getImageBitmapCallback(ArrayList<Bitmap> mBitmaps) {
         mImageBitmaps = mBitmaps;
         initRecyclerView(mImageBitmaps);
+
+        saveImagesInDatabase(mBitmaps);
+    }
+
+    @Override
+    public void confirmUpdateDatabaseOperation() {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this)
+                .setCancelable(true)
+                .setMessage("The images were successfully saved in the database")
+                .setCustomTitle(getLayoutInflater().inflate(R.layout.alert_dialog_title, null))
+                .setIcon(R.mipmap.ic_android_debug_bridge_black_48dp)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+        mBuilder.create().show();
+
     }
 }

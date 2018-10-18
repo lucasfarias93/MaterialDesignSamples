@@ -67,6 +67,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMapView = mapFragment.getView();
         mapFragment.getMapAsync(this);
 
+        Intent mNotificationIntent = getIntent();
+        mNotificaitonBitmap = mNotificationIntent.getParcelableExtra("mImage");
+        mNotificationTitleText = mNotificationIntent.getStringExtra("mImageName");
+
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
     }

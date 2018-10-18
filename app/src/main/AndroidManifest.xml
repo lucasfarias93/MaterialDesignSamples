@@ -27,7 +27,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.Bridge">
+            android:theme="@style/Theme.MaterialComponents.MyTheme.NoActionBar">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

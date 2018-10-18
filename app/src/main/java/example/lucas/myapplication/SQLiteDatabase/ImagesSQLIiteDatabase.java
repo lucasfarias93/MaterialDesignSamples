@@ -40,7 +40,7 @@ public class ImagesSQLIiteDatabase extends SQLiteOpenHelper{
 
     // Singleton Pattern for getting the instance
     public static synchronized ImagesSQLIiteDatabase getInstance(Context context) {
-        if(mInstance != null){
+        if(mInstance == null){
             mInstance = new ImagesSQLIiteDatabase(context);
         }
         return mInstance;
@@ -71,7 +71,7 @@ public class ImagesSQLIiteDatabase extends SQLiteOpenHelper{
             ContentValues mValues = new ContentValues();
             mValues.put(KEY_IMAGE_ID, image.mImageId);
             mValues.put(KEY_IMAGE_NAME, image.mImageName);
-            mValues.put(KEY_IMAGE_PATH, image.mImagePath);
+            mValues.put(KEY_IMAGE_PATH, image.mImageByteArray);
 
             db.insertOrThrow(TABLE_IMAGES, null, mValues);
             db.setTransactionSuccessful();

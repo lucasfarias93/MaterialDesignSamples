@@ -40,11 +40,13 @@ public class BottomNavigationDrawerFragment extends BottomSheetDialogFragment {
                     case R.id.location: {
                         Intent mMapActivityIntent = new Intent(getActivity(), MapsActivity.class);
                         startActivity(mMapActivityIntent);
+                        BottomNavigationDrawerFragment.this.dismiss();
                     }
                     break;
                     case R.id.info: {
                         Intent mShowPictureIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"));
                         startActivity(mShowPictureIntent);
+                        BottomNavigationDrawerFragment.this.dismiss();
                         //TODO: implement validation in case of no application to open the url.
                     }
                     break;

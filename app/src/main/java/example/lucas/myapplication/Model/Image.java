@@ -19,14 +19,14 @@ public class Image {
         this.mImageName = mImageName;
     }
 
-    public String getmImagePath() {
-        return mImagePath;
+    public byte[] getmImageByteArray() {
+        return mImageByteArray;
     }
 
-    public void setmImagePath(String mImagePath) {
-        this.mImagePath = mImagePath;
+    public void setmImageByteArray(byte[] mImageByteArray) {
+        this.mImageByteArray = mImageByteArray;
     }
 
     public String mImageName;
-    public String mImagePath;
+    public byte[] mImageByteArray;
 }
